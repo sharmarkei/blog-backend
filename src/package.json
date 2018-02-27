@@ -1,5 +1,5 @@
 {
-  "name": "src",
+  "name": "blog-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "DEBUG='blog*' mocha",
+    "start": "DEBUG='blog*' node server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "http-errors": "^1.6.2",
+    "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.7",
     "morgan": "^1.9.0"
   }
