@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = Schema({
   username: { type: String, required: true, unique: true },
-  email: { tpye: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   tokenHash: { type: String, unique: true }
 });
@@ -64,7 +64,7 @@ userSchema.methods.generateFindHash = function () {
         });
     }
   });
-}
+};
 
 userSchema.methods.generateToken = function () {
   debug('generateToken');
@@ -74,6 +74,6 @@ userSchema.methods.generateToken = function () {
       .then(findHash => resolve(jwt.sign({ token: findHash }, process.env.APP_SECRET)))
       .catch(err => reject(err));
   });
-}
+};
 
 module.exports = mongoose.model('user', userSchema);

@@ -7,8 +7,9 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
 
-// const authRouter = require('./route/auth-router.js');
-// const errors = require('./lib/error-middleware.js');
+const authRouter = require('./route/auth-router.js');
+const postRouter = require('./route/post-router.js');
+const errors = require('./lib/error-middleware.js');
 
 dotenv.load();
 
@@ -20,8 +21,9 @@ mongoose.connect(MONGODB_URI);
 app.use(cors());
 app.use(morgan('dev'));
 
-// app.use(authRouter);
-// app.use(errors);
+app.use(authRouter);
+app.use(postRouter);
+app.use(errors);
 
 app.listen(PORT, () => {
   debug(`currently listening on: ${PORT}`);
